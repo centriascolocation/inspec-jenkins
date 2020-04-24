@@ -1,0 +1,11 @@
+name: inspec-jenkins
+title: Centrias Colocation base profile for Jenkins-CI servers
+maintainer: support@centrias.net
+copyright: Centrias Colocation GmbH
+copyright_email: support@centrias.net
+license: Apache-2.0
+summary: InSpec Base Profile for Jenkins-CI installations
+version: 0.3
+supports:
+  - platform: linux
+inspec_version: ">= 4.18"
