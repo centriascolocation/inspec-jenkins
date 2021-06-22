@@ -4,7 +4,7 @@ control 'cc-jenkins-base-installation-java-version' do
 
   impact 1.0
   title "openjdk package installed"
-  desc "Verifies JAVA 8 installation"
+  desc "Verifies JAVA installation"
 
   describe.one do
     # RedHat families:
@@ -12,6 +12,12 @@ control 'cc-jenkins-base-installation-java-version' do
       it { should be_installed }
     end
     describe package('java-1.8.0-openjdk') do
+      it { should be_installed }
+    end
+    describe package('java-11-openjdk-headless') do
+      it { should be_installed }
+    end
+    describe package('java-11-openjdk') do
       it { should be_installed }
     end
 
@@ -28,10 +34,24 @@ control 'cc-jenkins-base-installation-java-version' do
     describe package('openjdk-8-jdk') do
       it { should be_installed }
     end
+
+    describe package('openjdk-11-jre-headless') do
+      it { should be_installed }
+    end
+    describe package('openjdk-11-jre') do
+      it { should be_installed }
+    end
+    describe package('openjdk-11-jdk-headless') do
+      it { should be_installed }
+    end
+    describe package('openjdk-11-jdk') do
+      it { should be_installed }
+    end
+
   end
 
   describe command('java -version') do
-    its('stderr') { should match (/openjdk version \"1.8/) }
+    its('stderr') { should match /openjdk\s+version\s+\"(1\.8|11\.\d+)/ }
   end
 
 end
