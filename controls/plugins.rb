@@ -17,7 +17,6 @@ control 'cc-jenkins-plugins' do
     its('stdout') { should match (/jobConfigHistory.jpi$/) }
     its('stdout') { should match (/thinBackup.jpi$/) }
     its('stdout') { should match (/ws-cleanup.jpi$/) }
-    its('stdout') { should match (/scm-sync-configuration.jpi$/) }
   end
 
 end
